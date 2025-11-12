@@ -1,0 +1,153 @@
+/* --- Base Slider Container --- */
+.image-slider {
+  position: relative;
+  width: calc(100% - 40px); /* Full width of the viewport, minus left and right margins */
+  max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+  height: calc(100vh - 40px); /* Adjust height to account for margin (20px on top and bottom) */
+  overflow: hidden; /* Prevent horizontal overflow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  background-color: transparent;
+  margin: 20px auto; /* Center the slider with equal margin on top and bottom */
+  border-radius: 20px; /* Round the corners of the entire slider */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional: Adds a shadow effect */
+  box-sizing: border-box; /* Include padding and border in the element's total size */
+}
+
+/* --- Image Wrapper --- */
+.image-slider-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1; /* Ensures images are behind the overlay */
+  border-radius: 20px; /* Round the corners of the image wrapper */
+}
+
+/* --- Slider Image --- */
+.slider-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure image covers the container */
+  z-index: 1;
+  border-radius: 20px; /* Round the corners of the image */
+}
+
+/* --- Header Content --- */
+.header-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Keep the content centered both horizontally and vertically */
+  z-index: 3;
+  max-width: 90%;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.1s ease-out; /* Smooth transition for the caption movement */
+  will-change: transform; /* Optimize for performance */
+}
+
+/* --- Header Title (H1) --- */
+.header-content h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+  line-height: 1.4;
+}
+
+/* --- Header Subtitle (H2) --- */
+.header-content h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.4;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #ffcc99;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* --- Paragraph (Description) --- */
+.header-content p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  margin-bottom: 35px;
+  line-height: 1.6;
+  color: #f5f5f5;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Navigation Buttons --- */
+button.prev,
+button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 32px;
+  border: none;
+  cursor: pointer;
+  padding: 12px;
+  z-index: 4;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(3px);
+}
+
+button.prev:hover,
+button.next:hover {
+  background-color: #4D3E3A;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
+
+/* --- Mobile Optimizations --- */
+@media (max-width: 768px) {
+  .image-slider {
+    width: calc(100% - 20px);
+    height: 100vh; /* Full viewport height */
+    margin: 10px; /* Smaller margin on mobile */
+    padding: 0; /* Remove extra padding on mobile */
+  }
+
+  .header-content {
+    padding: 15px; /* Reduce padding for mobile */
+    max-width: 80%; /* Allow header content to take more width */
+    max-height: 60%; /* Slightly larger height for mobile */
+  }
+
+  .header-content h1 {
+    font-size: 28px; /* Reduce font size for smaller screens */
+  }
+
+  .header-content h2 {
+    font-size: 20px; /* Reduce font size for smaller screens */
+  }
+
+  .header-content p {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* Reduce paragraph size */
+    margin-bottom: 20px; /* Adjust bottom margin for better spacing */
+  }
+
+  button.prev,
+  button.next {
+    display: none; /* Hide navigation arrows on mobile devices */
+  }
+}

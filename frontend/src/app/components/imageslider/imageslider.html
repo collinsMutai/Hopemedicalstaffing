@@ -1,0 +1,30 @@
+<header
+  class="image-slider"
+  role="banner"
+  [attr.aria-label]="getAriaLabel()"
+  [ngStyle]="{ 'background-image': 'url(' + imageUrls[currentIndex] + ')' }"
+>
+  <!-- Image + Overlay -->
+  <div class="image-slider-wrapper">
+    <img
+      [src]="imageUrls[currentIndex]"
+      [alt]="captions[currentIndex]?.header"
+      loading="lazy"
+      class="slider-image"
+    />
+  </div>
+
+  <!-- Header Content -->
+  <div class="header-content">
+    <h1>{{ captions[currentIndex]?.header }}</h1>
+    <h2>{{ captions[currentIndex]?.description }}</h2>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <button class="prev" (click)="prevSlide()" aria-label="Previous Slide">
+    &#10094;
+  </button>
+  <button class="next" (click)="nextSlide()" aria-label="Next Slide">
+    &#10095;
+  </button>
+</header>

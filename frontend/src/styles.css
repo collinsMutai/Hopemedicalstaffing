@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/azure-blue.css';  
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Reset box-sizing to border-box globally */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Use a smooth scroll for the page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure body and html elements stretch to full viewport height */
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  min-height: 100%; /* Ensures body stretches to full height */
+  display: flex;
+  flex-direction: column; /* Ensures footer is pushed to the bottom */
+}
+
+/* Ensure the main content area takes up available space */
+.main-content {
+  flex: 1; /* Allows the content to grow and fill the space */
+}
+
+/* Optional: Add spacing between footer and bottom */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

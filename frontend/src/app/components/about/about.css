@@ -1,0 +1,93 @@
+/* General layout */
+.about-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow the content to wrap on smaller screens */
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.text-section {
+  width: 50%;
+  padding-right: 20px; /* Add space between text and image */
+}
+
+.text-section h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.text-section h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  color: gray;
+}
+
+.text-section p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px; /* Adds spacing between paragraphs */
+}
+
+.cta-text {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #e6a493; /* Light coral color for the button */
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none; /* Remove underline from link */
+  margin-top: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #4D3E3A; /* Darker shade of coral for hover */
+  transform: scale(1.05); /* Slight scale effect */
+}
+
+.image-section {
+  width: 45%;
+}
+
+.image-section img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column; /* Stack sections vertically on smaller screens */
+    align-items: center; /* Center align content */
+    padding: 20px;
+  }
+
+  .text-section {
+    width: 100%; /* Use a larger width on smaller screens for better readability */
+    margin-bottom: 20px; /* Add space between text and image */
+  }
+
+  .image-section {
+    width: 80%; /* Ensure the image takes up enough space on mobile */
+  }
+
+  .cta-text {
+    font-size: 16px; /* Slightly smaller CTA text on mobile */
+  }
+
+  .cta-button {
+    padding: 10px 20px; /* Adjust padding for mobile */
+    font-size: 14px; /* Slightly smaller font size */
+  }
+}

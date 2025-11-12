@@ -1,0 +1,185 @@
+/* Snackbar Success */
+.snackbar-success {
+  background-color: #4caf50;  /* Green background for success */
+  color: white;
+}
+
+/* Snackbar Error */
+.snackbar-error {
+  background-color: #f44336;  /* Red background for error */
+  color: white;
+}
+
+
+/* Contact Styles */
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 40px;
+}
+
+.left-column {
+  flex: 1;
+  padding: 20px;
+}
+
+.left-column h2 {
+  font-size: 46px;
+  font-weight: 600;
+  color: RGB(77, 62, 58);
+  margin-bottom: 10px;
+}
+
+.left-column p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.contact-info {
+  margin-top: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease; /* Smooth hover transition */
+}
+
+.contact-item .contact-icon {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  padding: 12px;
+  background-color: #e6a493; /* Light orange background */
+  border-radius: 50%; /* Circle shape */
+  color: white; /* Icon color */
+  width: 50px; /* Icon size */
+  height: 50px; /* Icon size */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth background change */
+}
+
+/* Hover effect for the icon */
+.contact-item:hover .contact-icon {
+  background-color: #4D3E3A; /* Darker color on hover */
+  transform: scale(1.1); /* Slightly enlarge the icon */
+}
+
+.contact-item span {
+  font-size: 1rem;
+  transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth transition for color and text decoration */
+}
+
+/* Hover effect for text */
+.contact-item:hover span {
+  color: #4D3E3A; /* Change text color on hover */
+
+}
+
+.contact-item span:hover {
+  color: #4D3E3A; /* Text color on hover */
+ 
+}
+
+.right-column {
+  flex: 1;
+  padding: 40px;
+  background-color: #F5F2EC;
+  border-radius: 20px;
+}
+
+.right-column h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.right-column form {
+  display: flex;
+  flex-direction: column;
+}
+
+.right-column input,
+.right-column textarea {
+  padding: 12px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+}
+
+.right-column textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+.right-column button {
+  padding: 12px;
+  background-color: #e6a493;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.right-column button:hover {
+  background-color: #4D3E3A;
+}
+
+.right-column input:focus,
+.right-column textarea:focus {
+  border-color: #e6a493;
+  outline: none;
+}
+
+/* Inline Inputs */
+.inline-inputs {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.input-group {
+  flex: 1;
+}
+
+.input-group input {
+  width: 100%;
+}
+
+/* Placeholder Styling */
+.right-column input::placeholder,
+.right-column textarea::placeholder {
+  color: #aaa; /* Placeholder text color */
+  font-style: normal; /* Optional: Makes placeholder text italic */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .left-column,
+  .right-column {
+    flex: 1 1 100%;
+    padding: 15px;
+  }
+
+  .left-column h2 {
+    font-size: 26px;
+  }
+
+  .inline-inputs {
+    flex-direction: column;
+  }
+}

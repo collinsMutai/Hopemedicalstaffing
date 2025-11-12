@@ -1,0 +1,155 @@
+/* Navbar Styles */
+.navbar {
+  background-color: #e6a493;
+  color: white;
+  padding: 1.2rem 4rem;
+  width: 100%; /* Ensure navbar takes full width */
+}
+
+.navbar .navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar .logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: white;
+  margin-right: 2rem; /* Add margin to create space between logo and hamburger */
+}
+
+.navbar .hamburger {
+  display: none; /* Hide the hamburger on desktop */
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.navbar .hamburger .hamburger-line {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+/* Mobile Menu Styling */
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition: transform 0.3s ease, right 0.3s ease, opacity 0.3s ease; /* Smooth transition for sliding and fade effect */
+  position: fixed;
+  top: 0;
+  right: -100vw; /* Initially off-screen to the right */
+  height: 100vh; /* Full screen height */
+  background-color: #e6a493;
+  width: 0; /* Initially collapsed */
+  z-index: 1000;
+  justify-content: flex-start; /* Align items at the top */
+  padding-top: 25vh; /* Adjust position of links for mobile */
+  opacity: 0; /* Initially hidden */
+}
+
+/* When the menu is open, slide in from the right */
+.navbar ul.open {
+  right: 0; /* Slide in from the right */
+  opacity: 1; /* Make it visible */
+  width: 100vw; /* Full screen width */
+}
+
+.navbar li a {
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem; /* Adjust font size */
+}
+
+/* Close Button (X) Styling */
+.navbar .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  z-index: 1100; /* Ensure it's above other content */
+}
+
+.navbar .close-icon {
+  display: inline-block;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Desktop Menu Styling */
+@media (min-width: 769px) {
+  .navbar ul {
+    display: flex; /* Display menu links horizontally on desktop */
+    position: static; /* Make the navbar static (not fixed) */
+    right: initial; /* Remove right offset */
+    top: initial; /* Remove top offset */
+    height: auto; /* Reset height */
+    width: auto; /* Reset width */
+    justify-content: flex-end; /* Align links to the right */
+    opacity: 1; /* Ensure the menu is visible */
+    padding-top: 0; /* Reset padding */
+  }
+
+  .navbar li {
+    display: inline-block; /* Display links horizontally */
+    margin-left: 2rem; /* Space between links */
+  }
+
+  .navbar li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem; /* Adjust padding */
+    font-size: 1.2rem; /* Adjust font size */
+    text-align: center;
+  }
+
+  .navbar .hamburger {
+    display: none; /* Hide the hamburger icon on desktop */
+  }
+
+  .navbar .close-btn {
+    display: none; /* Hide close button on desktop */
+  }
+}
+
+/* Mobile specific styles */
+@media (max-width: 768px) {
+  .navbar .hamburger {
+    display: block; /* Show hamburger icon on mobile */
+  }
+
+  .navbar ul {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -100vw; /* Initially off-screen for mobile */
+    width: 0; /* Initially collapsed */
+  }
+
+  .navbar ul.open {
+    right: 0; /* Slide in from the right on mobile */
+    width: 100vw; /* Full width of the screen */
+  }
+
+  .navbar {
+    padding: 1rem;
+  }
+
+
+}

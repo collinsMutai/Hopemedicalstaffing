@@ -1,0 +1,93 @@
+<div class="contact-container" id="contact">
+  <!-- Left Column: Contact Info -->
+  <div class="left-column">
+    <h2>Contact Us</h2>
+    <p>If you have any questions, feel free to reach out to us through any of the methods below.</p>
+    <div class="contact-info">
+      <div class="contact-item">
+        <i class="fas fa-phone contact-icon"></i>
+        <span>503-747-5544</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-envelope contact-icon"></i>
+        <span>info@hopemedicalstaffing.com</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-fax contact-icon"></i>
+        <span>503-751-2962</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt contact-icon"></i>
+        <span>797 NE Kathryn St. Hillsboro <br> OR 97124</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Column: Contact Form -->
+  <div class="right-column">
+    <form (ngSubmit)="onSubmit()" class="contact-form">
+      <h3>Send us a Message</h3>
+
+      <!-- Inline First Name & Last Name -->
+      <div class="inline-inputs">
+        <div class="input-group">
+          <input
+            type="text"
+            id="first-name"
+            [(ngModel)]="formData.firstName"
+            name="firstName"
+            placeholder="First Name"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <input
+            type="text"
+            id="last-name"
+            [(ngModel)]="formData.lastName"
+            name="lastName"
+            placeholder="Last Name"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Inline Phone & Email -->
+      <div class="inline-inputs">
+        <div class="input-group">
+          <input
+            type="tel"
+            id="phone"
+            [(ngModel)]="formData.phone"
+            name="phone"
+            placeholder="Phone"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <input
+            type="email"
+            id="email"
+            [(ngModel)]="formData.email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Message Below -->
+      <textarea
+        id="message"
+        [(ngModel)]="formData.message"
+        name="message"
+        placeholder="Your Message"
+        required
+      ></textarea>
+
+      <button type="submit">Submit Message</button>
+    </form>
+  </div>
+</div>
