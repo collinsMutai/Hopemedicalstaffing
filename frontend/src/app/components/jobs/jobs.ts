@@ -13,7 +13,11 @@ import { CommonModule } from '@angular/common';
   imports: [FormsModule, HttpClientModule, MatSnackBarModule, MatDialogModule, CommonModule], // Include MatDialogModule
 })
 export class Jobs {
-  jobRoles = ['LPN', 'CNA', 'RN']; // available roles
+  jobRoles = [
+    { role: 'LPN', image: 'assets/images/hero-img.jpg' }, // LPN Image
+    { role: 'CNA', image: 'assets/images/homecare.jpg' }, // CNA Image
+    { role: 'RN', image: 'assets/images/hospicecare.webp' }    // RN Image
+  ]; // available roles with images
   selectedRole: string | null = null;  // Track the selected role
   formData: any = { name: '', phone: '', email: '', role: '', resume: '' };
   resumeFile: File | null = null;
