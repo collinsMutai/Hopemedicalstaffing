@@ -1,37 +1,46 @@
 <div class="job-listing-container">
   <h2>Apply for a Job at Hope Medical Staffing</h2>
 
-  <!-- Select job role -->
-  <div class="form-group">
-    <label for="role">Choose Role</label>
-    <select id="role" [(ngModel)]="formData.role" class="form-control" required>
-      <option value="">Select Role</option>
-      <option *ngFor="let role of jobRoles" [value]="role">{{ role }}</option>
-    </select>
+  <!-- Job Roles Cards -->
+  <div class="job-cards-container">
+    <div 
+      *ngFor="let role of jobRoles" 
+      class="job-card" 
+      (click)="selectRole(role)">
+      <h3>{{ role }}</h3>
+      <p>Click to apply</p>
+    </div>
   </div>
 
-  <!-- Personal Info Section -->
-  <div class="form-group">
-    <label for="name">Full Name</label>
-    <input type="text" id="name" [(ngModel)]="formData.name" class="form-control" placeholder="Enter your name" required />
-  </div>
+  <!-- Modal for job application form -->
+  <div *ngIf="isModalOpen" class="modal-overlay">
+    <div class="modal-content">
+      <h3>Apply for {{ selectedRole }} Position</h3>
 
-  <div class="form-group">
-    <label for="phone">Phone Number</label>
-    <input type="tel" id="phone" [(ngModel)]="formData.phone" class="form-control" placeholder="Enter your phone number" required />
-  </div>
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" [(ngModel)]="formData.name" class="form-control" placeholder="Enter your name" required />
+      </div>
 
-  <div class="form-group">
-    <label for="email">Email Address</label>
-    <input type="email" id="email" [(ngModel)]="formData.email" class="form-control" placeholder="Enter your email address" required />
-  </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" [(ngModel)]="formData.phone" class="form-control" placeholder="Enter your phone number" required />
+      </div>
 
-  <!-- Resume Upload Section -->
-  <div class="form-group">
-    <label for="resume">Upload Resume (PDF)</label>
-    <input type="file" id="resume" (change)="onFileChange($event)" class="form-control" accept="application/pdf" required />
-  </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" [(ngModel)]="formData.email" class="form-control" placeholder="Enter your email address" required />
+      </div>
 
-  <!-- Submit Button -->
-  <button (click)="submitApplication()" class="btn btn-primary">Submit Application</button>
+      <div class="form-group">
+        <label for="resume">Upload Resume (PDF)</label>
+        <input type="file" id="resume" (change)="onFileChange($event)" class="form-control" accept="application/pdf" required />
+      </div>
+
+      <div class="modal-buttons">
+        <button mat-button (click)="submitApplication()">Submit Application</button>
+        <button mat-button (click)="closeModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
 </div>

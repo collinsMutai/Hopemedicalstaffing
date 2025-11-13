@@ -1,16 +1,59 @@
 .job-listing-container {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  border: 1px solid #ccc;
+}
+
+.job-cards-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.job-card {
+  background-color: #f1f1f1;
   border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  width: 180px;
+  margin: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 500px;
+  max-width: 100%;
 }
 
 .form-group {
   margin-bottom: 15px;
 }
 
-input, select, textarea {
+input {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
@@ -24,8 +67,14 @@ button {
   color: white;
   border: none;
   border-radius: 4px;
+  margin: 5px;
 }
 
 button:hover {
   background-color: #0056b3;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
 }

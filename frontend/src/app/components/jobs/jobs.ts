@@ -1,31 +1,57 @@
 import { Component } from '@angular/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http'; 
-import { CommonModule } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog'; // Import MatDialog
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-jobs',
-  templateUrl: './jobs.html',
-  styleUrls: ['./jobs.css'],
+  templateUrl: './jobs.html',  // Reference the HTML template
+  styleUrls: ['./jobs.css'],   // Reference the CSS file
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule],
+  imports: [FormsModule, HttpClientModule, MatSnackBarModule, MatDialogModule, CommonModule], // Include MatDialogModule
 })
 export class Jobs {
   jobRoles = ['LPN', 'CNA', 'RN']; // available roles
+  selectedRole: string | null = null;  // Track the selected role
   formData: any = { name: '', phone: '', email: '', role: '', resume: '' };
   resumeFile: File | null = null;
+  isModalOpen: boolean = false; // Modal visibility flag
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) {}
 
-  // Handle role selection and form data binding
+  // Function to select a job role and open the modal
+  selectRole(role: string) {
+    this.selectedRole = role;  // Set the selected role
+    this.formData.role = role;  // Pre-fill the role in the form
+    this.isModalOpen = true;  // Open the modal
+  }
+
+  // Function to close the modal
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
+  // Handle file input change event
   onFileChange(event: any) {
     this.resumeFile = event.target.files[0];
   }
 
   // Function to submit the form data and resume to the backend
   submitApplication() {
-    if (!this.formData.name || !this.formData.phone || !this.formData.email || !this.formData.role || !this.resumeFile) {
-      alert('Please fill in all the required fields and upload a resume.');
+    if (
+      !this.formData.name ||
+      !this.formData.phone ||
+      !this.formData.email ||
+      !this.formData.role ||
+      !this.resumeFile
+    ) {
+      this.snackBar.open('Please fill in all the required fields and upload a resume.', 'Close', {
+        duration: 5000,
+        horizontalPosition: 'right',
+        verticalPosition: 'top',
+      });
       return;
     }
 
@@ -38,14 +64,39 @@ export class Jobs {
 
     // Call the backend API to send the email
     this.http.post('http://localhost:3000/send-email', formDataObj).subscribe(
-      (response) => {
-        console.log('Application submitted successfully:', response);
-        alert('Your application has been submitted successfully!');
+      (response: any) => {
+        this.snackBar.open('Your application has been submitted successfully!', 'Close', {
+          duration: 5000,
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+        });
+
+        // Reset form after successful submission
+        this.resetForm();
+        this.closeModal(); // Close the modal after submission
       },
       (error) => {
-        console.error('Error submitting application:', error);
-        alert('There was an issue submitting your application. Please try again.');
+        this.snackBar.open('There was an issue submitting your application. Please try again.', 'Close', {
+          duration: 5000,
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+        });
       }
     );
+  }
+
+  // Function to reset the form
+  resetForm() {
+    this.formData = { name: '', phone: '', email: '', role: '', resume: '' };  // Reset form data
+    this.resumeFile = null;  // Clear resume file
+
+    // Optionally, reset file input element (if you want to visually clear the input)
+    const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement;
+    if (fileInput) {
+      fileInput.value = '';  // Clear the file input field
+    }
+
+    // Hide the form if the application is submitted or reset
+    this.selectedRole = null;
   }
 }
