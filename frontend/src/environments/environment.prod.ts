@@ -7,4 +7,5 @@ export const environment = {
     templateID: 'template_nvzmh3d',
     userID: 'KugVgViY8dT9SKuyr',
   },
+ apiUrl: 'https://hopemedicalstaffing.com/send-email'
 };

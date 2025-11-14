@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog'; // Import MatDialog
 import { CommonModule } from '@angular/common';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-jobs',
@@ -67,7 +68,7 @@ export class Jobs {
     formDataObj.append('resume', this.resumeFile, this.resumeFile.name);
 
     // Call the backend API to send the email
-    this.http.post('http://localhost:3000/send-email', formDataObj).subscribe(
+    this.http.post(environment.apiUrl, formDataObj).subscribe(
       (response: any) => {
         this.snackBar.open('Your application has been submitted successfully!', 'Close', {
           duration: 5000,

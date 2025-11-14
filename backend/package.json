@@ -1,12 +1,13 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Backend for the Hope Medical Staffing website",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",  
+    "test": "echo \"Error: no test specified\" && exit 1"  
   },
-  "keywords": [],
+  "keywords": ["Node.js", "Express", "Backend"],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -15,5 +16,8 @@
     "express": "^5.1.0",
     "multer": "^2.0.2",
     "nodemailer": "^7.0.10"
+  },
+  "engines": {
+    "node": ">=16.0.0"  
   }
 }

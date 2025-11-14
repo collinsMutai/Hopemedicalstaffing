@@ -12,9 +12,24 @@ const port = 3000;
 const upload = multer({ dest: "uploads/" });
 
 // Allow CORS for your Angular app running on http://localhost:4200
+const allowedOrigins = [
+  "http://localhost:4200", // Local development URL
+  "https://hopemedicalstaffing.com", // Remote production URL
+  "https://api.hopemedicalstaffing.com",
+];
+
+// CORS options
 const corsOptions = {
-  origin: "http://localhost:4200", // Allow requests from this origin
-  methods: ["GET", "POST"], // Allow GET and POST requests
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      // Allow the request if origin is in allowedOrigins or if there's no origin (e.g., for localhost)
+      callback(null, true);
+    } else {
+      // Reject requests from disallowed origins
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST"], // Allow GET and POST methods
   allowedHeaders: ["Content-Type", "Authorization"], // Allow these headers
   credentials: true, // Allow credentials (cookies, authorization headers)
 };
@@ -24,6 +39,11 @@ app.use(cors(corsOptions));
 
 // Parse JSON bodies (if you need to handle JSON data)
 app.use(express.json());
+
+// ✅ Root route to confirm server is running
+app.get("/", (req, res) => {
+  res.send("✅ Backend is running!");
+});
 
 // Setup Nodemailer transporter using your SMTP details
 const transporter = nodemailer.createTransport({
