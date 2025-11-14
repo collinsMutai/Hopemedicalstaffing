@@ -50,7 +50,8 @@ export class Jobs {
       !this.formData.phone ||
       !this.formData.email ||
       !this.formData.role ||
-      !this.resumeFile
+      !this.resumeFile ||
+      !this.formData.agreeToPrivacyPolicy
     ) {
       this.snackBar.open('Please fill in all the required fields and upload a resume.', 'Close', {
         duration: 5000,

@@ -1,0 +1,43 @@
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #4D3E3A; /* Background color */
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%; /* Make it circular */
+  font-size: 0; /* Hide text */
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  z-index: 1000; /* Make sure it's above other content */
+  display: flex; /* Flex to center the icon */
+  justify-content: center;
+  align-items: center;
+  width: 50px; /* Size of the button */
+  height: 50px; /* Size of the button */
+  visibility: hidden; /* Initially hidden */
+}
+
+/* Show the button when it's scrolled down */
+.back-to-top.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Style for the SVG icon inside the button */
+.back-to-top svg {
+  width: 24px;
+  height: 24px;
+  stroke: white; /* Make sure the icon is white */
+  transition: stroke 0.2s ease;
+}
+
+/* Hover effect */
+.back-to-top:hover {
+  opacity: 1; /* Full opacity when hovered */
+}
+
+/* Optional: Add a smooth transition effect when the button is shown/hidden */

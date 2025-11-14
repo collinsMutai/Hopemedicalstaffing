@@ -86,7 +86,18 @@
         placeholder="Your Message"
         required
       ></textarea>
-
+<!-- Privacy Policy Checkbox -->
+      <div class="privacy-policy">
+        <label>
+          <input
+            type="checkbox"
+            [(ngModel)]="formData.privacyPolicy"
+            name="privacyPolicy"
+            required
+          />
+          I agree to the <a href="/privacy-policy" target="_blank">Privacy Policy</a>
+        </label>
+      </div>
       <button type="submit">Submit Message</button>
     </form>
   </div>

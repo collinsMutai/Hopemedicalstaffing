@@ -37,6 +37,14 @@
         <input type="file" id="resume" (change)="onFileChange($event)" class="form-control" accept="application/pdf" required />
       </div>
 
+         <!-- Privacy Policy Checkbox -->
+    <div class="form-group">
+      <label class="privacy-policy-label">
+        <input type="checkbox" [(ngModel)]="formData.agreeToPrivacyPolicy" required />
+        I agree to the <a href="/privacy-policy" target="_blank">Privacy Policy</a>
+      </label>
+    </div>
+
       <div class="modal-buttons">
         <button mat-button (click)="submitApplication()">Submit Application</button>
         <button mat-button (click)="closeModal()">Cancel</button>

@@ -19,6 +19,7 @@ export class Contact {
     phone: '',
     email: '',
     message: '',
+    privacyPolicy: false,
   };
 
   constructor(private snackBar: MatSnackBar) {}
@@ -39,6 +40,7 @@ export class Contact {
       email: this.formData.email,
       phone: this.formData.phone,
       message: this.formData.message,
+      
     };
 
     emailjs
@@ -67,6 +69,7 @@ export class Contact {
       phone: '',
       email: '',
       message: '',
+      privacyPolicy: false,
     };
   }
 

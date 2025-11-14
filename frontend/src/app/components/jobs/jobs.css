@@ -72,6 +72,28 @@ p {
   font-size: 1.1em; /* Increased font size for the description */
 }
 
+/* Privacy Policy Checkbox Inline Styling */
+.privacy-policy-label {
+  font-size: 0.9em;
+  display: inline-flex; /* Makes the label content inline */
+  align-items: center;
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
+.privacy-policy-label input[type="checkbox"] {
+  margin-right: 8px; /* Adds a small space between the checkbox and the text */
+}
+
+.privacy-policy-label a {
+  color: #e6a493; /* Modify based on your theme */
+  text-decoration: none;
+}
+
+.privacy-policy-label a:hover {
+  text-decoration: underline;
+}
+
+
 /* Media Queries for Responsive Design */
 
 /* For screens up to 1024px (Tablets) */
