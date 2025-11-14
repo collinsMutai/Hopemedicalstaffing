@@ -1,40 +1,40 @@
 <nav class="navbar">
   <div class="navbar-container">
-    <!-- Logo -->
     <div class="logo">
       <span class="navbar-logo">Hopemedicalstaffing</span>
     </div>
 
-    <!-- Hamburger Icon -->
     <div class="hamburger" (click)="toggleMenu()">
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
     </div>
 
-    <!-- Menu Links (Aligned to the right) -->
     <ul class="navbar-links" [class.open]="isMenuOpen()">
-      <!-- Close Button (X) -->
       <li class="close-btn" (click)="handleLinkClick()">
         <span class="close-icon">&times;</span>
       </li>
 
-      <!-- Navigation Links -->
       <li *ngFor="let link of navLinks">
+        <!-- For routerLink-based navigation -->
         <a
-          *ngIf="!link.isRouterLink"
-          href="{{ link.path }}" 
+          *ngIf="link.isRouterLink"
+          routerLink="{{ link.path }}"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
           class="navbar-link"
           (click)="handleLinkClick()"
         >
           {{ link.label }}
         </a>
+
+        <!-- For non-router (hash-based) navigation -->
         <a
-          *ngIf="link.isRouterLink"
-          routerLink="{{ link.path }}"
-          routerLinkActive="active"
+          *ngIf="!link.isRouterLink"
+          href="{{ link.path }}"
           class="navbar-link"
           (click)="handleLinkClick()"
+          [class.active]="isActiveLink(link.path)"
         >
           {{ link.label }}
         </a>

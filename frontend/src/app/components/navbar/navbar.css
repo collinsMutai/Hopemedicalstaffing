@@ -92,6 +92,13 @@
   color: white;
 }
 
+.navbar-link.active {
+  font-weight: bold; /* Example: Make active link bold */
+  color: #4D3E3A !important; /* Example: Change active link color */
+  
+}
+
+
 /* Desktop Menu Styling */
 @media (min-width: 769px) {
   .navbar ul {

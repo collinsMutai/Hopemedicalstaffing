@@ -34,7 +34,8 @@ export class Contact {
   // Send the email using EmailJS
   sendEmail() {
     const templateParams = {
-      name: this.formData.firstName + ' ' + this.formData.lastName,
+      firstName: this.formData.firstName,
+      lastName: this.formData.lastName,
       email: this.formData.email,
       phone: this.formData.phone,
       message: this.formData.message,

@@ -26,9 +26,20 @@ export class NavbarComponent {
   // Define the nav links with routes matching your app.routes.ts
   navLinks = [
     { path: '', label: 'Home', isRouterLink: true },
-    { path: '#about', label: 'About', isRouterLink: false },  // Use hash for scroll
+    { path: '#about', label: 'About', isRouterLink: false }, // Use hash for scroll
     { path: '#services', label: 'Services', isRouterLink: false },
     { path: '#contact', label: 'Contact', isRouterLink: false },
     { path: '/jobs', label: 'Jobs', isRouterLink: true },
   ];
+
+isActiveLink(path: string): boolean {
+  // If it's a router link (not hash-based), check for the current URL
+  if (path.startsWith('/')) {
+    return window.location.pathname === path;
+  } else {
+    // For hash links, compare the hash
+    return window.location.hash === path;
+  }
+}
+
 }
